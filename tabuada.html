@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tabuada</h1>
+    <p>Digite um numero e veja uma tabuada:<p>
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button onclick="gerarTabuada()">Gerar Tabuada</button>
+    
+    <div id="resultado" style="margin-top: 20px;"></div>
+
+    <script>
+        function gerarTabuada() {
+            const numeroInput = document.getElementById("numero");
+            const resultadoDiv = document.getElementById("resultado");
+            const num = parseFloat(numeroInput.value);
+
+            //Limpar o conteudo anterior 
+            resultadoDiv.innerHTML = "";
+
+            //Verificar se o valor é um numero
+            if (isNaN(num)) {
+                resultadoDiv.innerHTML = "<p style= 'color:red;'>Por favor, digite um numero valido. </p>";
+                return;
+            }
+
+            //Gerar a tabuada de 1 a 10
+            for (let i = 1; i <= 10; i++) {
+              resultadoDiv.innerHTML += `<p>${num} x ${i} = ${num * i}</p>`;    
+            }
+        }
+    </script>
+    
+</body>
+</html>
